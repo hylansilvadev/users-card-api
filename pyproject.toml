@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "api"
-version = "0.1.0"
-description = ""
+version = "0.0.1"
+description = "Testes Testes e Testes"
 authors = ["Hylan Silva <111002592+hylansilvadev@users.noreply.github.com>"]
 license = "MIT"
 readme = "README.md"
@@ -11,8 +11,8 @@ python = "3.11.*"
 fastapi = "^0.110.0"
 uvicorn = {extras = ["standard"], version = "^0.27.1"}
 pydantic-settings = "^2.2.1"
-firebase-admin = "^6.4.0"
-firedantic = "^0.6.0"
+pydantic = "^2.6.3"
+pymongo = {extras = ["srv"], version = "^4.6.2"}
 
 [tool.poetry.group.dev.dependencies]
 taskipy = "^1.12.2"
@@ -41,7 +41,7 @@ extend-exclude = '(migrations/)'
 [tool.taskipy.tasks]
 lint = 'ruff . && blue --check . --diff && isort --check . --diff'
 format = 'blue .  && isort .'
-run = 'uvicorn api.app:app --reload'
+run = 'uvicorn app.main:app --reload'
 pre_test = 'task lint'
 test = 'pytest -s -x --cov=api -vv'
 post_test = 'coverage html'
